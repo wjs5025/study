@@ -63,3 +63,25 @@ const App = () => {
 };
 ```
 
+
+## persistor config의 stateReconciler 설정
+- hardSet ( import hardSet from 'redux-persist/lib/stateReconciler/hardSet') 수신 상태를 하드 설정합니다. 이는 persistReducer가 리듀서 ```txt
+트리의 더 깊은 곳에 중첩되어 있거나 리듀서의initialState에 의존하지 않는 경우에 바람직할 수 있습니다.
+초기 상태 :{ foo: initialFoo, bar: initialBar }
+수신 상태 :{ foo: incomingFoo }
+RECONCILED STATE : { foo: incomingFoo }// 노트 바가 삭제되었습니다.
+```
+
+- autoMergeLevel1(기본값) 한 수준 깊이로 자동 병합됩니다. 자동 병합은 REHYDRATE 작업 중에 리듀서가 일부 하위 상태 부분을 수정한 경우 이 상태 부분을 건너뛰는 것을 의미합니다. 레벨 1은 1레벨 깊이로 얕은 병합을 의미합니다.
+```txt
+수신 상태 :{ foo: incomingFoo }
+초기 상태 :{ foo: initialFoo, bar: initialBar }
+조정된 상태 :{ foo: incomingFoo, bar: initialBar }
+```
+
+- autoMergeLevel2 이는 두 수준을 얕은 병합한다는 점을 제외하면 autoMergeLevel1과 동일하게 작동합니다.
+```txt
+수신 상태 :{ foo: incomingFoo }
+초기 상태 :{ foo: initialFoo, bar: initialBar }
+조정된 상태 :{ foo: mergedFoo, bar: initialBar }
+```
