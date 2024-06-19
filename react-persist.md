@@ -1,3 +1,9 @@
+# middleware
+- 미들웨어란 운영체제와 응용 소프트웨어 중간에서 조정과 중개의 역할을 수행하는 소프트웨어를 말한다.
+- 리덕스 미들웨어는 액션을 디스패치 했을 때 리듀서에서 이를 처리하기에 앞서 사전에 지정된 작업을 실행한다. 미들웨어는 액션과 리듀서 사이의 중간자라고 볼 수 있다.
+
+(https://velog.io/@gyumin_2/React.js-redux-middleware%EB%A6%AC%EB%8D%95%EC%8A%A4-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4-redux-thunk-redux-saga)
+
 # React Persist
 Persist and rehydrate a redux store.
 
@@ -56,3 +62,4 @@ const App = () => {
   );
 };
 ```
+
