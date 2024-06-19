@@ -85,3 +85,14 @@ RECONCILED STATE : { foo: incomingFoo }// 노트 바가 삭제되었습니다.
 초기 상태 :{ foo: initialFoo, bar: initialBar }
 조정된 상태 :{ foo: mergedFoo, bar: initialBar }
 ```
+
+
+## persistConfig의 storage 설정
+```js
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['persist'],
+};
+```
+https://www.npmjs.com/package/redux-persist#:~:text=storage%2C%0A%20%20transforms%3A%20%5BSetTransform%5D%0A%7D%3B-,Storage%20Engines,-localStorage%20import%20storage
